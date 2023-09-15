@@ -22,6 +22,6 @@
 
 <body>
     <x-hoversidebar>
-        <h1>Hello World</h1>
+        <h1 class="uppercase flex">Hello World</h1>
     </x-hoversidebar>
 </body>
