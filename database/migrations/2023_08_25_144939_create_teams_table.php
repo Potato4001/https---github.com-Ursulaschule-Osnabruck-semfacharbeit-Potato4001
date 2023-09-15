@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('team_name')->unique();
             $table->string('sport_type');
-            $table->string('team_type');
+            $table->string('team_type_id');
             $table->timestamps();
         });
     }

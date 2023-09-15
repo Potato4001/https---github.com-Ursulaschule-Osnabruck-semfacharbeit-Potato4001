@@ -18,8 +18,9 @@ class TeamFactory extends Factory
     public function definition(): array
     {
         return [
-            'team type_id' => TeamType::factory(),
-            'name' => fake()->unique(),
+            'team_type_id' => TeamType::factory(),
+            'team_name' => fake()->unique()->word(),
+            'sport_type' => fake()->unique()->word()
         ];
     }
 }

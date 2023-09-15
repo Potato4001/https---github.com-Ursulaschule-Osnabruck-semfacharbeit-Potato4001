@@ -19,7 +19,6 @@ class TeamUserController extends Controller
             'name' => ['required', Rule::unique('users', 'name')],
             'email' => ['required', Rule::unique('users', 'email')],
             'password' => ['required'],
-            //'team_id' =>
         ]);
 
         $user = User::create($attributes);

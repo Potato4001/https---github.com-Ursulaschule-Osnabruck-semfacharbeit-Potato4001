@@ -22,26 +22,32 @@ class PermissionsSeeder extends Seeder
         app()[PermissionRegistrar::class]->forgetCachedPermissions();
 
         // create permissions
-        Permission::create(['name' => 'edit articles']);
-        Permission::create(['name' => 'delete articles']);
-        Permission::create(['name' => 'publish articles']);
-        Permission::create(['name' => 'unpublish articles']);
+        Permission::create(['name' => 'give permission']);
+        Permission::create(['name' => 'create events']);
+        Permission::create(['name' => 'edit commitments']);
+        Permission::create(['name' => 'manage treasury']);
 
         // create roles and assign existing permissions
-        $role1 = Role::create(['name' => 'writer']);
-        $role1->givePermissionTo('edit articles');
-        $role1->givePermissionTo('delete articles');
+        $role1 = Role::create(['name' => 'coach']);
+        $role1->givePermissionTo('create events');
+        $role1->givePermissionTo('edit commitments');
 
         $role2 = Role::create(['name' => 'admin']);
-        $role2->givePermissionTo('publish articles');
-        $role2->givePermissionTo('unpublish articles');
-
-        $role3 = Role::create(['name' => 'Super-Admin']);
+        $role2->givePermissionTo('give permission');
+        $role2->givePermissionTo('create events');
+        $role2->givePermissionTo('edit commitments');
+        $role2->givePermissionTo('manage treasury');
         // gets all permissions via Gate::before rule; see AuthServiceProvider
+
+        $role3 = Role::create(['name' => 'captain']);
+        $role3->givePermissionTo('edit commitments');
+
+        $role4 = Role::create(['name' => 'treasurer']);
+        $role4->givePermissionTo('manage treasury');
 
         // create demo users
         $user = \App\Models\User::factory()->create([
-            'name' => 'Example User',
+            'name' => 'Example Coach User',
             'email' => 'test@example.com',
         ]);
         $user->assignRole($role1);
@@ -53,7 +59,7 @@ class PermissionsSeeder extends Seeder
         $user->assignRole($role2);
 
         $user = \App\Models\User::factory()->create([
-            'name' => 'Example Super-Admin User',
+            'name' => 'Example Captain User',
             'email' => 'superadmin@example.com',
         ]);
         $user->assignRole($role3);

@@ -47,7 +47,7 @@
                     <x-form.field>
                         <x-form.label name="team_type"/>
 
-                        <select name="team_type" id="team_type">
+                        <select name="team_type_id" id="team_type_id">
                             @php
                             $teamTypes = \App\Models\TeamType::all();
                             @endphp

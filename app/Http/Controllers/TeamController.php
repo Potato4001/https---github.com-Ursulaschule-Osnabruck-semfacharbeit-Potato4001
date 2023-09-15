@@ -20,7 +20,7 @@ class TeamController extends Controller
         $attributes = request()->validate([
             'team_name' => ['required', Rule::unique('teams', 'team_name')],
             'sport_type' => ['required'],
-            'team_type' => ['required']
+            'team_type_id' => ['required'],
         ]);
         
 
