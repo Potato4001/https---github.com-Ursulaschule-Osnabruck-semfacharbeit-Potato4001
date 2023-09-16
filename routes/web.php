@@ -38,7 +38,7 @@ Route::post('team/step-user', [TeamUserController::class, 'store']);
 
 Route::get('team/{user:team_id}', [TeamManagmentController::class, 'create']);
 
-Route::get('team/events', [EventController::class, 'index'])->middleware('guest');
+Route::get('team/{user:team_id}/events', [EventController::class, 'index']);
 /* Das können nur bestimmte Rollen aufrufen, naemlich Admin, Coach */
 /* Route::get('events/create', [EventController::class, 'create']);
 Route::post('events', [EventController::class, 'store']);

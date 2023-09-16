@@ -2,14 +2,15 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Event;
 use Illuminate\Http\Request;
 
 class EventController extends Controller
 {
     public function index()
     {
-        return view('team.events.index', [
-           // 'events' => Event::paginate(10)
+        return view('events.index', [
+            'events' => Event::paginate(10)
         ]);
         
     }

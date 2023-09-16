@@ -22,6 +22,22 @@
 
 <body>
     <x-hoversidebar>
-        <h1 class="uppercase flex">Hello World</h1>
+        @can('create events')
+        <div>
+            <a href="">Create new event</a>
+        </div>
+        @endcan
+        <main class="max-w-6xl mx-auto mt-6 lg:mt-20 space-y-6">
+
+            @if($events->count())
+            <x-events-grid :events="$events" />
+
+            {{ $events->links()}}
+            @else
+            <p class="text-center">No events yet. Please check back later.</p>
+            @endif
+
+
+        </main>
     </x-hoversidebar>
 </body>

@@ -20,4 +20,9 @@ class Team extends Model
     {
         return $this->belongsTo(TeamType::class);
     }
+
+    public function events()
+    {
+        return $this->hasMany(Event::class);
+    }
 }
