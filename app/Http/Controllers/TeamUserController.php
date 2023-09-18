@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
+use Database\Seeders\PermissionsSeeder;
 
 class TeamUserController extends Controller
 {
@@ -21,14 +22,11 @@ class TeamUserController extends Controller
             'password' => ['required'],
             // 'team_id'
         ]);
-
-        $user = User::create([
-            $attributes
-    ]);
-    $user->assignRole('admin');
+        $user = User::create($attributes);
+        $user->assignRole('admin');
 
         auth()->login($user);
 
-        return redirect('team/{$user->team_id}');
+        return redirect('team/{$user->team_id}')->with('success', 'You are logged in!');
     }
 }

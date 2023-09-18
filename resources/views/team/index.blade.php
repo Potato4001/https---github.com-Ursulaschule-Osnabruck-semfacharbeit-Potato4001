@@ -33,7 +33,7 @@
                         </div>
 
                         <div class="text-white">
-                            <h1 class="font-fantasy mr-8 text-xl">Welcome, Marie!</h1>
+                            <h1 class="font-fantasy mr-8 text-xl">Welcome, {{ auth()->user()->name }}!</h1>
                         </div>
                     </div>
                 </div>
