@@ -22,22 +22,24 @@
 
 <body>
     <x-hoversidebar>
-        @can('create events')
-        <button class="absolute border border-blue-700 right-14 top-10 py-2 px-4">
-            <a href="">Create new event</a>
-        </button>
+        @can('manage treasury')
+            <button class="absolute top-10 right-14 border border-blue-700 py-2 px-4">
+                <a href="treasury/create">New Entry</a>
+            </button>
         @endcan
+<!--
         <main class="max-w-6xl mx-auto mt-6 lg:mt-20 space-y-6">
 
-            @if($events->count())
-            <x-events-grid :events="$events" />
+            @if($treasuries->count())
+            <x-treasury-grid :treasuries="$treasuries" />
 
-            {{ $events->links()}}
+            {{ $treasuries->links()}}
             @else
-            <p class="text-center">No events yet. Please check back later.</p>
+            <p class="text-center">No transmissions yet. Please check back later.</p>
             @endif
 
 
         </main>
+    -->
     </x-hoversidebar>
 </body>

@@ -7,6 +7,7 @@ use App\Http\Controllers\SessionsController;
 use App\Http\Controllers\TeamController;
 use App\Http\Controllers\TeamManagmentController;
 use App\Http\Controllers\TeamUserController;
+use App\Http\Controllers\TreasuryController;
 use Illuminate\Support\Facades\Route;
 use Spatie\Permission\Exceptions\RoleDoesNotExist;
 
@@ -46,6 +47,7 @@ Route::get('events/{event}/edit', EventController::class, 'edit');
 Route::patch('events/{event}', [AdminPostController::class, 'update']);
 Route::delete('events/{event}', [AdminPostController::class, 'destroy']);
 */
+Route::get('team/{user:team_id}/treasury', [TreasuryController::class, 'index']);
 
 Route::get('join', [JoinController::class, 'create'])->middleware('guest');
 Route::post('join', [JoinController::class, 'store']);
