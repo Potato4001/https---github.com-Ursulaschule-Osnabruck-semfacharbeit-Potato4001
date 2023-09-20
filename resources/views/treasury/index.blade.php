@@ -21,25 +21,77 @@
 </head>
 
 <body>
-    <x-hoversidebar>
+    <x-hoversidebar-featuring>
+        <section class="px-6 py-8 flex justify-end">
         @can('manage treasury')
-            <button class="absolute top-10 right-14 border border-blue-700 py-2 px-4">
-                <a href="treasury/create">New Entry</a>
-            </button>
+        <button class="py-2 px-4 bg-gradient-to-r from-cyan-500 to-blue-500 rounded 
+            hover:from-green-500 hover:to-blue-400 text-lg text-white font-semibold">
+            <a href="treasury/create">New Entry</a>
+        </button>
         @endcan
-<!--
-        <main class="max-w-6xl mx-auto mt-6 lg:mt-20 space-y-6">
+        </section>
 
-            @if($treasuries->count())
-            <x-treasury-grid :treasuries="$treasuries" />
+        <div class="flex flex-col mx-4">
+            <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
+                <div class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
+                    <div class="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
+                        <table class="min-w-full divide-y divide-gray-200">
+                            <tbody class="bg-white divide-y divide-gray-200">
+                                @foreach ($treasuries as $treasury)
+                                <tr>
+                                    @if('manage treasury')
+                                    <td class="px-6 py-4 whitespace-nowrap">
+                                        <div class="flex items-center">
+                                            <div class="text-lg font-medium text-gray-900">
+                                                <a href="">
+                                                    {{ $treasury->name }}
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td class="px-6 py-4 whitespace-nowrap">
+                                        <span class="px-2 inline-flex text-lg leading-5 font-semibold text-green-600">
+                                            {{ $treasury->betrag }}
+                                        </span>
+                                    </td>
+                                    
+                                    <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-semibold">
+                                        <a href="" class="inline-flex text-blue-500 hover:text-blue-800 rounded-full bg-blue-100 px-2">
+                                            Edit
+                                        </a>
+                                    </td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
+                                        <!--<a href="" class="text-red-500 hover:text-red-800">Delete</a>-->
+                                        <form method="POST" action="">
+                                            @csrf
+                                            @method('DELETE')
 
-            {{ $treasuries->links()}}
-            @else
-            <p class="text-center">No transmissions yet. Please check back later.</p>
-            @endif
-
-
-        </main>
-    -->
-    </x-hoversidebar>
+                                            <button class="text-sm font-semibold inline-flex px-2 rounded-full bg-red-200 text-red-800 hover:text-red-800">Delete</button>
+                                        </form>
+                                    </td>
+                                    @else
+                                    <td class="px-6 py-4 whitespace-nowrap">
+                                        <div class="flex items-center">
+                                            <div class="text-lg font-medium text-gray-900">
+                                                <a href="">
+                                                    {{ $treasury->name }}
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td class="px-6 py-4 whitespace-nowrap">
+                                        <span class="px-2 inline-flex text-lg leading-5 font-semibold text-green-600 justify-end">
+                                            {{ $treasury->betrag }}
+                                        </span>
+                                    </td>
+                                   @endif
+                                </tr>
+                                @endforeach
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </x-hoversidebar-featuring>
 </body>

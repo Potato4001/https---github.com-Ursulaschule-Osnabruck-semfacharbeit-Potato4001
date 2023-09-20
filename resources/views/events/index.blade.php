@@ -21,9 +21,10 @@
 </head>
 
 <body>
-    <x-hoversidebar>
+    <x-hoversidebar-featuring>
         @can('create events')
-        <button class="absolute border border-blue-700 right-14 top-10 py-2 px-4">
+        <button class="absolute right-14 top-10 py-2 px-4 bg-gradient-to-r from-cyan-500 to-blue-500 rounded 
+            hover:from-pink-500 hover:to-yellow-500 text-lg text-white font-semibold">
             <a href="">Create new event</a>
         </button>
         @endcan
@@ -39,5 +40,5 @@
 
 
         </main>
-    </x-hoversidebar>
+    </x-hoversidebar-featuring>
 </body>
