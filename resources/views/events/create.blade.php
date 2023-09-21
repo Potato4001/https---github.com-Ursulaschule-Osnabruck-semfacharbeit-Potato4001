@@ -22,23 +22,42 @@
 
 <body>
     <x-hoversidebar-featuring>
-        @can('create events')
-        <button class="absolute right-14 top-10 py-2 px-4 bg-gradient-to-r from-cyan-500 to-blue-500 rounded 
-            hover:from-pink-500 hover:to-yellow-500 text-lg text-white font-semibold">
-            <a href="events/create">Create new event</a>
-        </button>
-        @endcan
-        <main class="max-w-6xl mx-auto mt-6 lg:mt-20 space-y-6">
+        <section class="px-6 py-8 flex justify-end">
 
-            @if($events->count())
-            <x-events-grid :events="$events" />
+            <button class="py-2 px-4 bg-gradient-to-r from-pink-500 to-yellow-500 rounded 
+            hover:from-cyan-500 hover:to-blue-400 text-lg text-white font-semibold">
+                <a href="./">Back</a>
+            </button>
 
-            {{ $events->links()}}
-            @else
-            <p class="text-center">No events yet. Please check back later.</p>
-            @endif
+        </section>
+        <main class="max-w-lg mx-auto mt-10">
+            <x-panel>
+                <h1 class="text-center font-bold text-xl font-fantasy">Create new Event!</h1>
+                <form action="./" method="POST" class="mt-10">
+                    @csrf
+                    <x-form.field>
+                        <x-form.label name="type" />
+
+                        <select name="type_id" id="type_id">
+                            @php
+                            $types = \App\Models\EventType::all();
+                            @endphp
+
+                            @foreach ($types as $type)
+                            <option>{{ ucwords($type->name)}}</option>
+                            @endforeach
+                        </select>
+
+                        <x-form.error name="team_type" />
+                    </x-form.field>
 
 
+                    <x-form.input name="time" type="time" />
+
+                    <x-form.button>Create</x-form.button>
+                </form>
+
+            </x-panel>
         </main>
     </x-hoversidebar-featuring>
 </body>

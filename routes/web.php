@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\EventController;
 use App\Http\Controllers\JoinController;
+use App\Http\Controllers\PermissionController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\SessionsController;
 use App\Http\Controllers\TeamController;
@@ -41,13 +42,14 @@ Route::get('team/{user:team_id}', [TeamManagmentController::class, 'create'])->m
 
 Route::get('team/{user:team_id}/events', [EventController::class, 'index']);
 /* Das können nur bestimmte Rollen aufrufen, naemlich Admin, Coach */
-/* Route::get('events/create', [EventController::class, 'create']);
-Route::post('events', [EventController::class, 'store']);
+Route::get('team/{user:team_id}/events/create', [EventController::class, 'create']);
+Route::post('team/{user:team_id}/events', [EventController::class, 'store']);/*
 Route::get('events/{event}/edit', EventController::class, 'edit');
 Route::patch('events/{event}', [AdminPostController::class, 'update']);
 Route::delete('events/{event}', [AdminPostController::class, 'destroy']);
 */
 Route::get('team/{user:team_id}/treasury', [TreasuryController::class, 'index']);
+Route::get('team/{user:team_id}/permissions', [PermissionController::class, 'index']);
 
 Route::get('join', [JoinController::class, 'create'])->middleware('guest');
 Route::post('join', [JoinController::class, 'store']);

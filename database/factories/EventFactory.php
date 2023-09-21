@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\EventType;
 use App\Models\Team;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
@@ -19,8 +20,8 @@ class EventFactory extends Factory
     {
         return [
             'team_id' => Team::factory(),
-            'name' => fake()->word(),
-            'time' => fake()->word()
+            'event_type_id' => EventType::factory(),
+            'time' => fake()->time()
         ];
     }
 }

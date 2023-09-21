@@ -22,23 +22,6 @@
 
 <body>
     <x-hoversidebar-featuring>
-        @can('create events')
-        <button class="absolute right-14 top-10 py-2 px-4 bg-gradient-to-r from-cyan-500 to-blue-500 rounded 
-            hover:from-pink-500 hover:to-yellow-500 text-lg text-white font-semibold">
-            <a href="events/create">Create new event</a>
-        </button>
-        @endcan
-        <main class="max-w-6xl mx-auto mt-6 lg:mt-20 space-y-6">
-
-            @if($events->count())
-            <x-events-grid :events="$events" />
-
-            {{ $events->links()}}
-            @else
-            <p class="text-center">No events yet. Please check back later.</p>
-            @endif
-
-
-        </main>
+        
     </x-hoversidebar-featuring>
 </body>
