@@ -45,8 +45,8 @@ Route::get('team/{user:team_id}/events', [EventController::class, 'index']);
 Route::get('team/{user:team_id}/events/create', [EventController::class, 'create']);
 Route::post('team/{user:team_id}/events', [EventController::class, 'store']);/*
 Route::get('events/{event}/edit', EventController::class, 'edit');
-Route::patch('events/{event}', [AdminPostController::class, 'update']);
-Route::delete('events/{event}', [AdminPostController::class, 'destroy']);
+Route::patch('events/{event}', [EventController::class, 'update']);
+Route::delete('events/{event}', [EventController::class, 'destroy']);
 */
 Route::get('team/{user:team_id}/treasury', [TreasuryController::class, 'index']);
 Route::get('team/{user:team_id}/permissions', [PermissionController::class, 'index']);

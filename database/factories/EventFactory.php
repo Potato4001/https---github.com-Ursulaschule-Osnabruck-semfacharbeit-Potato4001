@@ -20,7 +20,7 @@ class EventFactory extends Factory
     {
         return [
             'team_id' => Team::factory(),
-            'event_type_id' => EventType::factory(),
+            'activity' => fake()->word(),
             'time' => fake()->time()
         ];
     }

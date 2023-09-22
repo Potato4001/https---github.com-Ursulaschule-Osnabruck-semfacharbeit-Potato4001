@@ -24,13 +24,13 @@ class EventController extends Controller
     public function store()
     {
         $attributes = request()->validate([
-            'type_id' => ['required'],
+            'activity' => ['required'],
             'time' => ['required'],
-            'team_id' => request()->user()->team_id
+            //'team_id' => array_merge(request()->user()->team_id)
         ]);
         
         Event::create($attributes);
 
-        return redirect('./');
+        return redirect('/team/{$user->team_id}/events');
     }
 }

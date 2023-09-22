@@ -33,23 +33,10 @@
         <main class="max-w-lg mx-auto mt-10">
             <x-panel>
                 <h1 class="text-center font-bold text-xl font-fantasy">Create new Event!</h1>
-                <form action="./" method="POST" class="mt-10">
+                <form action="/team/{$user->team_id/events" method="POST" class="mt-10">
                     @csrf
-                    <x-form.field>
-                        <x-form.label name="type" />
 
-                        <select name="type_id" id="type_id">
-                            @php
-                            $types = \App\Models\EventType::all();
-                            @endphp
-
-                            @foreach ($types as $type)
-                            <option>{{ ucwords($type->name)}}</option>
-                            @endforeach
-                        </select>
-
-                        <x-form.error name="team_type" />
-                    </x-form.field>
+                    <x-form.input name="activity" type="text"/>
 
 
                     <x-form.input name="time" type="time" />

@@ -53,7 +53,7 @@
                             @endphp
 
                             @foreach ($teamTypes as $teamType)
-                            <option>{{ ucwords($teamType->name)}}</option>
+                            <option value="{{ $teamType->id }}">{{ ucwords($teamType->name)}}</option>
                             @endforeach
                         </select>
 

@@ -37,6 +37,8 @@
                     <div class="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
                         <table class="min-w-full divide-y divide-gray-200">
                             <tbody class="bg-white divide-y divide-gray-200">
+                                <!-- Idee If-Klausel um sicherzustellen, dass nur die Transactions von jeweiligen Team angezeigt werden-->
+                                
                                 @foreach ($treasuries as $treasury)
                                 <tr>
                                     @if('manage treasury')
@@ -51,7 +53,7 @@
                                     </td>
                                     <td class="px-6 py-4 whitespace-nowrap">
                                         <span class="px-2 inline-flex text-lg leading-5 font-semibold text-green-600">
-                                            {{ $treasury->betrag }}
+                                            {{ $treasury->betrag }} €
                                         </span>
                                     </td>
                                     
@@ -81,7 +83,7 @@
                                     </td>
                                     <td class="px-6 py-4 whitespace-nowrap">
                                         <span class="px-2 inline-flex text-lg leading-5 font-semibold text-green-600 justify-end">
-                                            {{ $treasury->betrag }}
+                                            {{ $treasury->betrag }} €
                                         </span>
                                     </td>
                                    @endif

@@ -10,7 +10,7 @@
                 <div class="mt-4">
                     <h1 class="text-3xl">
                         <a href="">
-                            {{ $event->name }}
+                            {{ $event->activity }}
                         </a>
                     </h1>
                 </div>

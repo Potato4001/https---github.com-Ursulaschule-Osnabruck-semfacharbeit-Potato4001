@@ -13,9 +13,9 @@ return new class extends Migration
     {
         Schema::create('events', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('type_id');
+            $table->string('activity');
             $table->time('time');
-            $table->foreignId('team_id');
+            $table->foreignId('team_id')->nullable();
             $table->timestamps();
         });
     }
