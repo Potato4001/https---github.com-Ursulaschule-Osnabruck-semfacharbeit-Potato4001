@@ -45,6 +45,8 @@ class PermissionsSeeder extends Seeder
         $role4 = Role::create(['name' => 'treasurer']);
         $role4->givePermissionTo('manage treasury');
 
+        Role::create(['name' => 'player']);
+
         // create demo users
         $user = \App\Models\User::factory()->create([
             'name' => 'Example Coach User',

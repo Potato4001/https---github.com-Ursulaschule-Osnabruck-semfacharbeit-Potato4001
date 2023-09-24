@@ -41,13 +41,11 @@
                                 
                                 @foreach ($treasuries as $treasury)
                                 <tr>
-                                    @if('manage treasury')
+                                    @if(auth()->user()->can('manage treasury'))
                                     <td class="px-6 py-4 whitespace-nowrap">
                                         <div class="flex items-center">
                                             <div class="text-lg font-medium text-gray-900">
-                                                <a href="">
                                                     {{ $treasury->name }}
-                                                </a>
                                             </div>
                                         </div>
                                     </td>
@@ -58,13 +56,13 @@
                                     </td>
                                     
                                     <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-semibold">
-                                        <a href="" class="inline-flex text-blue-500 hover:text-blue-800 rounded-full bg-blue-100 px-2">
+                                        <a href="/treaury/{{ $treasury->id }}/edit" class="inline-flex text-blue-500 hover:text-blue-800 rounded-full bg-blue-100 px-2">
                                             Edit
                                         </a>
                                     </td>
                                     <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
                                         <!--<a href="" class="text-red-500 hover:text-red-800">Delete</a>-->
-                                        <form method="POST" action="">
+                                        <form method="POST" action="/treasury/{{ $treasury->id }}">
                                             @csrf
                                             @method('DELETE')
 
