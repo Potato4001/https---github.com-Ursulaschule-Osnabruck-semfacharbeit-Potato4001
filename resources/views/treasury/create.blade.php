@@ -32,15 +32,13 @@
         </section>
         <main class="max-w-lg mx-auto mt-10">
             <x-panel>
-                <h1 class="text-center font-bold text-xl font-fantasy">Create new Event!</h1>
-                <form action="/team/{$user->team_id}/events" method="POST" class="mt-10">
+                <h1 class="text-center font-bold text-xl font-fantasy">Create new Entry!</h1>
+                <form action="/team/{$user->team_id}/treasury" method="POST" class="mt-10">
                     @csrf
 
-                    <x-form.input name="activity" type="text"/>
+                    <x-form.input name="name" type="name"/>
 
-                    <x-form.input name="date" type="date"/>
-
-                    <x-form.input name="time" type="time" />
+                    <x-form.input name="betrag" type="currency"/>
 
                     <x-form.button>Create</x-form.button>
                 </form>

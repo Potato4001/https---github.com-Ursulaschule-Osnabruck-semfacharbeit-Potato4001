@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('activity');
             $table->time('time');
+            $table->date('date');
             $table->foreignId('team_id')->nullable();
             $table->timestamps();
         });

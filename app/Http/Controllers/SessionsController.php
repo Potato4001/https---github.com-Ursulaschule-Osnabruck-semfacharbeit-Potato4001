@@ -29,7 +29,7 @@ class SessionsController extends Controller
             // session fixation
             session()->regenerate();
             // redirect with a success flash message
-            return redirect('./team/{$user->team_id}')->with('success', 'You are logged in!');
+            return redirect('./team/{{ $user->team_id }}')->with('success', 'You are logged in!');
             
         }
 

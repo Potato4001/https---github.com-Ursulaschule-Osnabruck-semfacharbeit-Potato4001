@@ -26,23 +26,24 @@
 
             <button class="py-2 px-4 bg-gradient-to-r from-pink-500 to-yellow-500 rounded 
             hover:from-cyan-500 hover:to-blue-400 text-lg text-white font-semibold">
-                <a href="./">Back</a>
+                <a href="/team/{ $user->team_id }/events">Back</a>
             </button>
 
         </section>
         <main class="max-w-lg mx-auto mt-10">
             <x-panel>
-                <h1 class="text-center font-bold text-xl font-fantasy">Create new Event!</h1>
-                <form action="/team/{$user->team_id}/events" method="POST" class="mt-10">
+                <h1 class="text-center font-bold text-xl font-fantasy">Update Event!</h1>
+                <form action="/events/{{ $event->id }}" method="POST" class="mt-10">
                     @csrf
+                    @method('PATCH')
 
-                    <x-form.input name="activity" type="text"/>
+                    <x-form.input name="activity" type="text" :value="old('activity', $event->activity)"/>
 
-                    <x-form.input name="date" type="date"/>
+                    <x-form.input name="date" type="date" :value="old('date', $event->date)"/>
 
-                    <x-form.input name="time" type="time" />
+                    <x-form.input name="time" type="time" :value="old('time', $event->time)"/>
 
-                    <x-form.button>Create</x-form.button>
+                    <x-form.button>Update</x-form.button>
                 </form>
 
             </x-panel>

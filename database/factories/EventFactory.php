@@ -21,7 +21,8 @@ class EventFactory extends Factory
         return [
             'team_id' => Team::factory(),
             'activity' => fake()->word(),
-            'time' => fake()->time()
+            'time' => fake()->time(),
+            'date' => fake()->date()
         ];
     }
 }

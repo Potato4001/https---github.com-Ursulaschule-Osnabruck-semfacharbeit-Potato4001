@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('treasuries', function (Blueprint $table) {
             $table->id();
-            $table->integer('team_id');
+            $table->integer('team_id')->nullable();
             $table->string('name');
             $table->integer('betrag');
             $table->timestamps();

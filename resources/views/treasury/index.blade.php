@@ -56,7 +56,7 @@
                                     </td>
                                     
                                     <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-semibold">
-                                        <a href="/treaury/{{ $treasury->id }}/edit" class="inline-flex text-blue-500 hover:text-blue-800 rounded-full bg-blue-100 px-2">
+                                        <a href="/treasury/{{ $treasury->id }}/edit" class="inline-flex text-blue-500 hover:text-blue-800 rounded-full bg-blue-100 px-2">
                                             Edit
                                         </a>
                                     </td>
