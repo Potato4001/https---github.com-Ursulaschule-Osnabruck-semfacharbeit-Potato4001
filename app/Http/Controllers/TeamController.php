@@ -22,7 +22,6 @@ class TeamController extends Controller
             'sport_type' => ['required'],
             'team_type_id' => ['required'],
         ]);
-        
 
         $team = Team::create($attributes);
 

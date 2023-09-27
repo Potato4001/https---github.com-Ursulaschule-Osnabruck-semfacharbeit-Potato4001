@@ -22,7 +22,7 @@
 
 <body>
     <x-hoversidebar-featuring>
-        <div class="flex flex-col mx-4">
+        <div class="flex flex-col mx-4 mt-8">
             <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
                 <div class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
                     <div class="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
@@ -30,10 +30,10 @@
                             <tbody class="bg-white divide-y divide-gray-200">
                                 @foreach ($users as $user)
                                 <tr>
-                                    
+
                                     <td class="px-6 py-4 whitespace-nowrap">
                                         <div class="flex items-center">
-                                            <div class="text-lg font-medium text-gray-900">
+                                            <div class="text-lg font-medium text-gray-900 font-fantasy">
                                                 <a href="">
                                                     {{ $user->name }}
                                                 </a>
@@ -41,9 +41,45 @@
                                         </div>
                                     </td>
                                     <td class="px-6 py-4 whitespace-nowrap">
-                                        <span class="px-2 inline-flex text-lg leading-5 font-semibold text-green-600">
-                                            {{ $user->role }} 
+                                        <span class="px-2 inline-flex text-lg leading-5 font-semibold text-green-600 font-fantasy">
+                                            <x-form.field>
+                                                <x-form.label name="role" />
+
+                                                <select name="role_id" id="role_id">
+                                                    @php
+                                                    $roles = Spatie\Permission\Models\Role::all();
+                                                    @endphp
+
+                                                    @foreach ($roles as $role)
+                                                    <option value="{{ $role->id }}" {{ old('role_id', $user->role_id) == $role->id ? 'selected' : '' }}>{{ ucwords($role->name)}}</option>
+                                                    @endforeach
+                                                </select>
+
+                                                <x-form.error name="role" />
+                                            </x-form.field>
                                         </span>
+                                    </td>
+                                    <td class="px-6 py-4 whitespace-nowrap">
+                                        <span class="px-2 inline-flex text-lg leading-5 font-semibold text-green-600 font-fantasy">
+                                            <x-form.field>
+                                                <x-form.label name="role2" />
+
+                                                <select name="role_id" id="role_id">
+                                                    @php
+                                                    $roles = Spatie\Permission\Models\Role::all();
+                                                    @endphp
+
+                                                    @foreach ($roles as $role)
+                                                    <option value="{{ $role->id }}" {{ old('role_id', $user->role_id) == $role->id ? 'selected' : '' }}>{{ ucwords($role->name)}}</option>
+                                                    @endforeach
+                                                </select>
+
+                                                <x-form.error name="role2" />
+                                            </x-form.field>
+                                        </span>
+                                    </td>
+                                    <td>
+                                        <button class="py-2 px-4 bg-blue-700 rounded-full text-white text-lg font-fantasy" action="submit">Save</button>
                                     </td>
                                 </tr>
                                 @endforeach

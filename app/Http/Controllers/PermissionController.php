@@ -7,10 +7,10 @@ use Illuminate\Http\Request;
 
 class PermissionController extends Controller
 {
-    public function index(User $users)
+    public function index()
     {
         return view('permission.index', [
-            'users' => $users
+            'users' => User::paginate(20)
         ]);
     }
 }
