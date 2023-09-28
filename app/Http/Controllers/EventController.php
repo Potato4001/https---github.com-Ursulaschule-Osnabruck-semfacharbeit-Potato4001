@@ -11,7 +11,9 @@ class EventController extends Controller
     public function index()
     {
         return view('events.index', [
-            'events' => Event::paginate(10),
+                'events' => Event::orderBy('date')->get()->groupBy(function($event){
+                return $event->eventdate >= now()->paginate(5);
+            }),
         ]);
         
     }
