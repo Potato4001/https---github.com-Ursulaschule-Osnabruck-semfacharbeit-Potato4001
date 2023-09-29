@@ -4,9 +4,9 @@
     <div class="lg:flex">
 
         <div class="flex-1 flex flex-col justify-between">
-            <header class="inline-flex justify-between bg-gradient-to-r from-sky-500 to-indigo-500 py-6 px-5 text-white rounded-t-lg shadow-sm">
+            <header class="inline-flex justify-between bg-gradient-to-r from-sky-500 to-indigo-500 py-6 px-5 rounded-t-lg shadow-sm">
 
-                <div class="items-center">
+                <div class="items-center text-white">
                     <h1 class="text-3xl">
                         <a href="">
                             {{ $event->activity }}
@@ -14,11 +14,12 @@
                     </h1>
                 </div>
 
+                @can('create events')
                 <div class="items-center flex">
                     <x-dropdown>
                         <x-slot name="trigger">
                             <button>
-                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 text-white">
                                     <path stroke-linecap="round" stroke-linejoin="round" d="M12 6.75a.75.75 0 110-1.5.75.75 0 010 1.5zM12 12.75a.75.75 0 110-1.5.75.75 0 010 1.5zM12 18.75a.75.75 0 110-1.5.75.75 0 010 1.5z" />
                                 </svg>
                             </button>
@@ -38,6 +39,7 @@
                         </x-dropdown-item>
                     </x-dropdown>
                 </div>
+                @endcan
             </header>
 
             <div class="text-lg mt-2 space-y-4 py-6 px-5">

@@ -16,6 +16,7 @@
                     </h1>
                 </div>
 
+                @can('create events')
                 <div class="items-center flex">
                     <x-dropdown>
                         <x-slot name="trigger">
@@ -40,6 +41,7 @@
                         </x-dropdown-item>
                     </x-dropdown>
                 </div>
+                @endcan
             </header>
 
             <div class="text-sm mt-4 space-y-4">
