@@ -5,6 +5,7 @@ use App\Http\Controllers\JoinController;
 use App\Http\Controllers\PermissionController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\SessionsController;
+use App\Http\Controllers\SettingController;
 use App\Http\Controllers\TeamController;
 use App\Http\Controllers\TeamManagmentController;
 use App\Http\Controllers\TeamUserController;
@@ -61,3 +62,5 @@ Route::get('team/{user:team_id}/permissions', [PermissionController::class, 'ind
 Route::get('join', [JoinController::class, 'create'])->middleware('guest');
 Route::post('join', [JoinController::class, 'store']);
 Route::get('join/register', [RegisterController::class, 'create']);
+
+Route::get('team/{user:team_id}/setting', [SettingController::class, 'index']);

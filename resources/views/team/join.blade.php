@@ -37,7 +37,7 @@
                     </div>
 
                     <!-- button muss noch ausgetauscht werden, weil neue Error überprüfung eingebaut werden muss -->
-                    <x-form.button>Join</x-form.button>
+                    <x-form.button>Confirm</x-form.button>
                 </form>
             </x-panel>
         </div>
