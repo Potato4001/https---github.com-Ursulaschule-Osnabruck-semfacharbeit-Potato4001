@@ -26,17 +26,20 @@ class PermissionsSeeder extends Seeder
         Permission::create(['name' => 'create events']);
         Permission::create(['name' => 'edit commitments']);
         Permission::create(['name' => 'manage treasury']);
+        Permission::create(['name' => 'show invitation_link']);
 
         // create roles and assign existing permissions
         $role1 = Role::create(['name' => 'coach']);
         $role1->givePermissionTo('create events');
         $role1->givePermissionTo('edit commitments');
+        $role1->givePermissionTo('show invitation_link');
 
         $role2 = Role::create(['name' => 'admin']);
         $role2->givePermissionTo('give permission');
         $role2->givePermissionTo('create events');
         $role2->givePermissionTo('edit commitments');
         $role2->givePermissionTo('manage treasury');
+        $role2->givePermissionTo('show invitation_link');
         // gets all permissions via Gate::before rule; see AuthServiceProvider
 
         $role3 = Role::create(['name' => 'captain']);

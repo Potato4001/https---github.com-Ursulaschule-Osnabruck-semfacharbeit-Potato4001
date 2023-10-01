@@ -20,7 +20,8 @@ class TeamFactory extends Factory
         return [
             'team_type_id' => TeamType::factory(),
             'team_name' => fake()->unique()->word(),
-            'sport_type' => fake()->unique()->word()
+            'sport_type' => fake()->unique()->word(),
+            'invitation_link' => fake()->unique()->url()
         ];
     }
 }

@@ -33,7 +33,7 @@
                             <path stroke-linecap="round" stroke-linejoin="round" d="M13.19 8.688a4.5 4.5 0 011.242 7.244l-4.5 4.5a4.5 4.5 0 01-6.364-6.364l1.757-1.757m13.35-.622l1.757-1.757a4.5 4.5 0 00-6.364-6.364l-4.5 4.5a4.5 4.5 0 001.242 7.244" />
                         </svg>
 
-                        <input class="p-2 w-full rounded" placeholder="Invitation Link" type="link">
+                        <input class="p-2 w-full rounded" placeholder="Invitation Link" type="link" name="invitation_link" id="invitation_link">
                     </div>
 
                     <!-- button muss noch ausgetauscht werden, weil neue Error überprüfung eingebaut werden muss -->

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Team;
 use Illuminate\Validation\ValidationException;
 
 class JoinController extends Controller
@@ -11,15 +12,19 @@ class JoinController extends Controller
         return view('team.join');
     }
 
-    public function store($url)
+    public function store()
     {
-        if ($url === $team->invitation_link)
+        $teams = Team::get();
+        foreach($teams as $team)
         {
-            return redirect('join/register/?team_id='. $team->id);
-        }else{
-            throw ValidationException::withMessages([
-                'invitation_link' => 'Your link could not be verified.' 
-            ]);
+            if ('invitation_link' === $team->invitation_link)
+            {
+                return redirect('/join/register/?team_id='. $team->id);
+            }    
         }
+
+        throw ValidationException::withMessages([
+            'invitation_link' => 'Your link could not be verified.' 
+        ]);
     }
 }

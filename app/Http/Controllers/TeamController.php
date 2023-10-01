@@ -25,6 +25,9 @@ class TeamController extends Controller
 
         $team = Team::create($attributes);
 
+        $team->invitation_link = 'http://https---github.com-ursulaschule-osnabruck-semfacharbeit-potato4001.test/team/'.  $team->id;
+        $team->save();
+
         return redirect('team/step-user/?team_id='.$team->id);
     }
 }

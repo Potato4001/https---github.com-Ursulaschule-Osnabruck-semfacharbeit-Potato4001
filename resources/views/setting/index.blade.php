@@ -22,8 +22,11 @@
 
 <body>
     <x-hoversidebar>
-        <section class="px-6 py-8 flex justify-center">
+        <section class="px-6 py-8 flex justify-between">
             <h1 class="font-fantasy text-xl">Settings</h1>
+            @can('show invitation_link')
+                <h1>Invitation Link: {{ auth()->user()->team_id->invitation_link }}</h1>
+            @endcan
         </section>
         <div class="flex flex-col mx-4 justify-center">
             <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">

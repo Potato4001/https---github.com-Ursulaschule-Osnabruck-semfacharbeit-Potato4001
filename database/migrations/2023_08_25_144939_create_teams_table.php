@@ -16,6 +16,7 @@ return new class extends Migration
             $table->string('team_name')->unique();
             $table->string('sport_type');
             $table->string('team_type_id');
+            $table->string('invitation_link')->nullable();
             $table->timestamps();
         });
     }
