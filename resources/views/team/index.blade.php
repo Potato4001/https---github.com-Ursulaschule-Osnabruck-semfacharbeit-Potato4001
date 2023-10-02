@@ -40,8 +40,14 @@
             </div>
             <!-- Jumbotron -->
         </nav>
-        <main>
-            
+        <main class="mt-4">
+            @if($events->count())
+            <x-events-grid :events="$events" />
+
+            {{ $events->links()}}
+            @else
+            <p class="text-center">No events yet. Please check back later.</p>
+            @endif
         </main>
     </x-hoversidebar>
 </body>
