@@ -3,8 +3,8 @@
 
 <style>
     .font-fantasy {
-            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-        }
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    }
 </style>
 
 <body>
@@ -35,6 +35,9 @@
 
                         <input class="p-2 w-full rounded" placeholder="Invitation Link" type="link" name="invitation_link" id="invitation_link">
                     </div>
+                    @error('invitation_link')
+                    <p class="text-red-500 text-xs mt-2 font-fantasy">{{ $message }}</p>
+                    @enderror
 
                     <!-- button muss noch ausgetauscht werden, weil neue Error überprüfung eingebaut werden muss -->
                     <x-form.button>Confirm</x-form.button>

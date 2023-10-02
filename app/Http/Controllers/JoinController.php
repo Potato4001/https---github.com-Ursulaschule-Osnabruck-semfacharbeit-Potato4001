@@ -2,7 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Team;
+use App\Models\TeamType;
+use Illuminate\Http\Request;
 use Illuminate\Validation\ValidationException;
 
 class JoinController extends Controller
@@ -14,17 +15,26 @@ class JoinController extends Controller
 
     public function store()
     {
-        $teams = Team::get();
+        $teams = \App\Models\Team::all();
+
+        $url = request()->validate([
+            'invitation_link' => ['required']
+        ]);
+    
         foreach($teams as $team)
         {
-            if ('invitation_link' === $team->invitation_link)
+            /**Problem liegt an der uebergebenen URL höchstwahrscheinlich kein String? */
+            if (implode($url) === $team->invitation_link)
             {
-                return redirect('/join/register/?team_id='. $team->id);
+                // session()->regenerate();
+
+                return redirect('/join/register/?team_id='.$team->id);
             }    
         }
 
         throw ValidationException::withMessages([
             'invitation_link' => 'Your link could not be verified.' 
         ]);
+        
     }
 }
