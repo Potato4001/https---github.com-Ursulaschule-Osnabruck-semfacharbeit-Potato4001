@@ -50,8 +50,8 @@
             @else
             <p class="text-center">No events yet. Please check back later.</p>
             @endif
-            <button class="py-2 px-3 bg-blue-500 rounded-xl text-white" href="">
-                Check events!
+            <button class="py-2 px-3 bg-gradient-to-r from-green-500 to-blue-500 rounded-xl text-white hover:bg-gradient-to-r hover:from-purple-500 hover:to-pink-500">
+                <a href="{{ url('/team/'. auth()->user()->team_id.'/events') }}">Check events!</a>
             </button>
         </main>
     </x-hoversidebar>
