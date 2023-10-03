@@ -29,59 +29,63 @@
                         <table class="min-w-full divide-y divide-gray-200">
                             <tbody class="bg-white divide-y divide-gray-200">
                                 @foreach ($users as $user)
-                                <tr>
+                                <form action="/permissions/{{ $user->id }}" method="POST">
+                                    @csrf
+                                    @method('PATCH')
+                                    <tr>
 
-                                    <td class="px-6 py-4 whitespace-nowrap">
-                                        <div class="flex items-center">
-                                            <div class="text-lg font-medium text-gray-900 font-fantasy">
-                                                <a href="">
-                                                    {{ $user->name }}
-                                                </a>
+                                        <td class="px-6 py-4 whitespace-nowrap">
+                                            <div class="flex items-center">
+                                                <div class="text-lg font-medium text-gray-900 font-fantasy">
+                                                    <a href="">
+                                                        {{ $user->name }}
+                                                    </a>
+                                                </div>
                                             </div>
-                                        </div>
-                                    </td>
-                                    <td class="px-6 py-4 whitespace-nowrap">
-                                        <span class="px-2 inline-flex text-lg leading-5 font-semibold text-green-600 font-fantasy">
-                                            <x-form.field>
-                                                <x-form.label name="role" />
+                                        </td>
+                                        <td class="px-6 py-4 whitespace-nowrap">
+                                            <span class="px-2 inline-flex text-lg leading-5 font-semibold text-green-600 font-fantasy">
+                                                <x-form.field>
+                                                    <x-form.label name="role" />
 
-                                                <select name="role_id" id="role_id">
-                                                    @php
-                                                    $roles = Spatie\Permission\Models\Role::all();
-                                                    @endphp
+                                                    <select name="role_id" id="role_id">
+                                                        @php
+                                                        $roles = Spatie\Permission\Models\Role::all();
+                                                        @endphp
 
-                                                    @foreach ($roles as $role)
-                                                    <option value="{{ $role->id }}" {{ old('role_id', $user->role_id) == $role->id ? 'selected' : '' }}>{{ ucwords($role->name)}}</option>
-                                                    @endforeach
-                                                </select>
+                                                        @foreach ($roles as $role)
+                                                        <option value="{{ $role->id }}" {{ old('role_id', $user->role_id) == $role->id ? 'selected' : '' }}>{{ ucwords($role->name)}}</option>
+                                                        @endforeach
+                                                    </select>
 
-                                                <x-form.error name="role" />
-                                            </x-form.field>
-                                        </span>
-                                    </td>
-                                    <td class="px-6 py-4 whitespace-nowrap">
-                                        <span class="px-2 inline-flex text-lg leading-5 font-semibold text-green-600 font-fantasy">
-                                            <x-form.field>
-                                                <x-form.label name="role2" />
+                                                    <x-form.error name="role" />
+                                                </x-form.field>
+                                            </span>
+                                        </td>
+                                        <td class="px-6 py-4 whitespace-nowrap">
+                                            <span class="px-2 inline-flex text-lg leading-5 font-semibold text-green-600 font-fantasy">
+                                                <x-form.field>
+                                                    <x-form.label name="role2" />
 
-                                                <select name="role_id" id="role_id">
-                                                    @php
-                                                    $roles = Spatie\Permission\Models\Role::all();
-                                                    @endphp
+                                                    <select name="role_id2" id="role_id2">
+                                                        @php
+                                                        $roles = Spatie\Permission\Models\Role::all();
+                                                        @endphp
 
-                                                    @foreach ($roles as $role)
-                                                    <option value="{{ $role->id }}" {{ old('role_id', $user->role_id) == $role->id ? 'selected' : '' }}>{{ ucwords($role->name)}}</option>
-                                                    @endforeach
-                                                </select>
+                                                        @foreach ($roles as $role)
+                                                        <option value="{{ $role->id }}" {{ old('role_id', $user->role_id) == $role->id ? 'selected' : '' }}>{{ ucwords($role->name)}}</option>
+                                                        @endforeach
+                                                    </select>
 
-                                                <x-form.error name="role2" />
-                                            </x-form.field>
-                                        </span>
-                                    </td>
-                                    <td>
-                                        <button class="py-2 px-4 bg-blue-700 rounded-full text-white text-lg font-fantasy" action="submit">Save</button>
-                                    </td>
-                                </tr>
+                                                    <x-form.error name="role2" />
+                                                </x-form.field>
+                                            </span>
+                                        </td>
+                                        <td>
+                                            <button class="py-2 px-4 bg-blue-700 rounded-full text-white text-lg font-fantasy" action="submit">Save</button>
+                                        </td>
+                                    </tr>
+                                </form>
                                 @endforeach
                             </tbody>
                         </table>

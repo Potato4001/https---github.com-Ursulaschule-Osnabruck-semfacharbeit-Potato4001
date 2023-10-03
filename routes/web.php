@@ -56,6 +56,7 @@ Route::patch('treasury/{treasury}', [TreasuryController::class, 'update']);
 Route::delete('treasury/{treasury}', [TreasuryController::class, 'destroy']);
 
 Route::get('team/{user:team_id}/permissions', [PermissionController::class, 'index']);
+Route::patch('permissions/{user}', [PermissionController::class, 'update']);
 
 Route::get('join', [JoinController::class, 'create'])->middleware('guest');
 Route::post('join', [JoinController::class, 'store']);
