@@ -8,9 +8,11 @@ use Illuminate\Validation\ValidationException;
 
 class JoinController extends Controller
 {
-    public function create()
+    public function create(Request $request)
     {
-        return view('team.join');
+        return view('team.join', [
+            'team_id' => $request->route('team_id')
+        ]);
     }
 
     public function store()
@@ -26,9 +28,9 @@ class JoinController extends Controller
             /**Problem liegt an der uebergebenen URL höchstwahrscheinlich kein String? */
             if (implode($url) === $team->invitation_link)
             {
-                // session()->regenerate();
+                //session()->regenerate();
 
-                return redirect('/join/register/?team_id='.$team->id);
+                return redirect('join/register/'.$team->id);
             }    
         }
 

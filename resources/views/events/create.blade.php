@@ -33,7 +33,7 @@
         <main class="max-w-lg mx-auto mt-10">
             <x-panel>
                 <h1 class="text-center font-bold text-xl font-fantasy">Create new Event!</h1>
-                <form action="/team/{$user->team_id}/events" method="POST" class="mt-10">
+                <form action="/team/'. auth()->user()->team_id.'/events" method="POST" class="mt-10">
                     @csrf
 
                     <x-form.input name="activity" type="text"/>

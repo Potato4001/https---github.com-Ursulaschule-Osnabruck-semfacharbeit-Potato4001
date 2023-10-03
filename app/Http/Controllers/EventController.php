@@ -3,16 +3,14 @@
 namespace App\Http\Controllers;
 
 use App\Models\Event;
-use Illuminate\Contracts\Validation\Rule;
-use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class EventController extends Controller
 {
     public function index()
     {
-        return view('events.index', [
-                'events' => Event::paginate(5)
-        ]);
+        $events = Event::where('team_id', Auth::user()->team_id)->paginate(5);
+        return view('events.index', compact(['events']));
         
     }
 
@@ -27,12 +25,13 @@ class EventController extends Controller
             'activity' => ['required'],
             'time' => ['required'],
             'date' => ['required'],
-            //'team_id' => array_merge(request()->user()->team_id)
         ]);
         
-        Event::create($attributes);
+        $event = Event::create($attributes);
+        $event->team_id = auth()->user()->team_id;
+        $event->save();
 
-        return redirect('/team/{$user->team_id}/events');
+        return redirect('/team/'. auth()->user()->team_id .'/events')->with('success', 'Event created!');
     }
 
     public function edit(Event $event)
@@ -51,7 +50,7 @@ class EventController extends Controller
 
         $event->update($attributes);
 
-        return redirect('/team/{{ $user->team_id }}/events')->with('success', 'Event Updated!');
+        return redirect('/team/'. auth()->user()->team_id .'/events')->with('success', 'Event Updated!');
     }
 
     public function destroy(Event $event)

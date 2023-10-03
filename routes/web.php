@@ -28,8 +28,6 @@ Route::get('/', function () {
     return view('index');
 });
 
-Route::get('register', [RegisterController::class, 'create'])->middleware('guest');
-Route::post('register', [RegisterController::class, 'store'])->middleware('guest');
 Route::get('login', [SessionsController::class, 'create'])->middleware('guest');
 Route::post('login', [SessionsController::class, 'store'])->middleware('guest');
 Route::post('logout', [SessionsController::class, 'destroy'])->middleware('auth');
@@ -61,6 +59,7 @@ Route::get('team/{user:team_id}/permissions', [PermissionController::class, 'ind
 
 Route::get('join', [JoinController::class, 'create'])->middleware('guest');
 Route::post('join', [JoinController::class, 'store']);
-Route::get('join/register', [RegisterController::class, 'create']);
+Route::get('join/register/{team_id}', [RegisterController::class, 'create']);
+Route::post('join/register/{team_id}', [RegisterController::class, 'store']);
 
 Route::get('team/{user:team_id}/setting', [SettingController::class, 'index']);

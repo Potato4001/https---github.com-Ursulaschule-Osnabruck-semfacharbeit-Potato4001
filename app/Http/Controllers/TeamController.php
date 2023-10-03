@@ -32,6 +32,6 @@ class TeamController extends Controller
             'team_id' => $team->id
         ])
         */
-        return redirect('team/step-user/?team_id='.$team->id);
+        return redirect('team/step-user/'.$team->id);
     }
 }

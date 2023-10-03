@@ -26,7 +26,7 @@
         @can('manage treasury')
         <button class="py-2 px-4 bg-gradient-to-r from-cyan-500 to-blue-500 rounded 
             hover:from-green-500 hover:to-blue-400 text-lg text-white font-semibold">
-            <a href="treasury/create">New Entry</a>
+            <a href="{{ url('/team/'. auth()->user()->team_id .'/treasury/create') }}">New Entry</a>
         </button>
         @endcan
         </section>

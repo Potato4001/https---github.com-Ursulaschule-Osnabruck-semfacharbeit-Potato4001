@@ -8,12 +8,14 @@ use Illuminate\Validation\Rule;
 
 class RegisterController extends Controller
 {
-    public function create()
+    public function create(Request $request)
     {
-        return view('register.create');
+        return view('register.create', [
+            'team_id' => $request->route('team_id')
+        ]);
     }
 
-    public function store()
+    public function store(Request $request)
     {
         // create the user
         $attributes = request()->validate([
@@ -23,9 +25,13 @@ class RegisterController extends Controller
         ]);
 
         $user = User::create($attributes);
+        $user->assignRole('player');
+
+        $user->team_id = $request->route('team_id');
+        $user->save();
 
         auth()->login($user);
 
-        return redirect('./')->with('success', 'Your account has been created.');
+        return redirect('/team/'. $user->team_id)->with('success', 'Your account has been created.');
     }
 }

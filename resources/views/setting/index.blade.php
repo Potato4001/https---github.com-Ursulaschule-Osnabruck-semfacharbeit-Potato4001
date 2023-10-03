@@ -25,7 +25,10 @@
         <section class="px-6 py-8 flex justify-between">
             <h1 class="font-fantasy text-xl">Settings</h1>
             @can('show invitation_link')
-                <h1>Invitation Link: {{ auth()->user()->team_id->invitation_link }}</h1>
+            <div class="font-fantasy flex flex-col">
+                <h1 class="font-semibold">Invitation Link: {{ $team->invitation_link }} </h1>
+                <h2 class="flex justify-end text-blue-500">Send this link to your team</h2>
+            </div>
             @endcan
         </section>
         <div class="flex flex-col mx-4 justify-center">
@@ -63,7 +66,7 @@
                                 <tr>
                                     <td class="px-6 py-4 whitespace-nowrap">
                                         <div class="flex items-center">
-                                            <div class="text-lg font-medium text-gray-900 inline-flex">
+                                            <div class="text-lg font-medium text-red-700 inline-flex">
                                                 <a href="#" x-data="{}" @click.prevent="document.querySelector('#logout-form').submit()" class="font-fantasy inline-flex items-center text-lg">
                                                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 mr-2">
                                                         <path stroke-linecap="round" stroke-linejoin="round" d="M5.636 5.636a9 9 0 1012.728 0M12 3v9" />

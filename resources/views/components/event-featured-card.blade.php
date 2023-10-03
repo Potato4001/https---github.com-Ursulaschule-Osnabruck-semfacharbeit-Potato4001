@@ -1,6 +1,6 @@
 @props(['event'])
 
-<article class="transition-colors duration-300 hover:bg-gray-100 border border-black border-opacity-0 hover:border-opacity-5 rounded-xl">
+<article class="transition-colors duration-300 hover:bg-gray-100 border border-black border-opacity-0 hover:border-opacity-5 rounded-xl mt-2">
     <div class="lg:flex">
 
         <div class="flex-1 flex flex-col justify-between">

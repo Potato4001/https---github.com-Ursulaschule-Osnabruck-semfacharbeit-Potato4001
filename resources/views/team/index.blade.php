@@ -40,14 +40,19 @@
             </div>
             <!-- Jumbotron -->
         </nav>
-        <main class="mt-4">
+        <main class="max-w-6xl mx-auto mt-6 lg:mt-20 space-y-6">
             @if($events->count())
-            <x-events-grid :events="$events" />
-
-            {{ $events->links()}}
+            <div class="">
+                @foreach($events as $event)
+                <x-event-featured-card :event="$event"/>
+                @endforeach
+            </div>
             @else
             <p class="text-center">No events yet. Please check back later.</p>
             @endif
+            <button class="py-2 px-3 bg-blue-500 rounded-xl text-white" href="">
+                Check events!
+            </button>
         </main>
     </x-hoversidebar>
 </body>

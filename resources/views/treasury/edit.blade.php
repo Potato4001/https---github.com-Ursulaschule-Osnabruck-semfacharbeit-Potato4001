@@ -26,7 +26,7 @@
 
             <button class="py-2 px-4 bg-gradient-to-r from-pink-500 to-yellow-500 rounded 
             hover:from-cyan-500 hover:to-blue-400 text-lg text-white font-semibold">
-                <a href="/team/{ $user->team_id }/treasury">Back</a>
+                <a href="{{ url('/team/'. auth()->user()->team_id .'/treasury') }}">Back</a>
             </button>
 
         </section>

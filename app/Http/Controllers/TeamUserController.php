@@ -34,6 +34,6 @@ class TeamUserController extends Controller
 
         auth()->login($user);
 
-        return redirect('team/{$user->team_id}')->with('success', 'You are logged in!');
+        return redirect('team/'. $user->team_id)->with('success', 'You are logged in!');
     }
 }

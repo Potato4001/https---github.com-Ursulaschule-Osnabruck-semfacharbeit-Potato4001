@@ -24,7 +24,7 @@
                     <h2>For joining your team you need to have an invitation link from your Coach or Admin</h2>
                 </div>
 
-                <form method="POST" action="join" class="mt-10">
+                <form method="POST" action="{{ url('/join/'. $team_id) }}" class="mt-10">
                     @csrf
 
 

@@ -21,7 +21,7 @@
 
                 <h1 class="text-center font-bold text-xl font-fantasy">About you!</h1>
                 <h2 class="text-center text-lg font-fantasy">How should the team perceive you?</h2>
-                <form method="POST" action="register" class="mt-10">
+                <form method="POST" action="{{ url('/join/register/'. $team_id) }}" class="mt-10">
                     @csrf
                     <x-form.input name="name" />
 
