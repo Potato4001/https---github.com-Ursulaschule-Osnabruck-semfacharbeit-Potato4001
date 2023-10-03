@@ -38,7 +38,7 @@
                 <div class="flex justify-center mt-2">
                     <h2 class="font-fantasy text-lg">Introduce yourself to the team!</h2>
                 </div>
-                <form method="POST" action="step-user" class="mt-10">
+                <form method="POST" action="{{ url('/team/step-user/'. $team_id) }}" class="mt-10">
                     @csrf
 
                     <x-form.input name="name" />

@@ -36,8 +36,8 @@ Route::post('logout', [SessionsController::class, 'destroy'])->middleware('auth'
 
 Route::get('team', [TeamController::class, 'create'])->middleware('guest');
 Route::post('team', [TeamController::class, 'store'])->middleware('guest');
-Route::get('team/step-user', [TeamUserController::class, 'create'])->middleware('guest');
-Route::post('team/step-user', [TeamUserController::class, 'store'])->middleware('guest');
+Route::get('team/step-user/{team_id}', [TeamUserController::class, 'create'])->middleware('guest');
+Route::post('team/step-user/{team_id}', [TeamUserController::class, 'store'])->middleware('guest');
 
 Route::get('team/{user:team_id}', [TeamManagmentController::class, 'create'])->middleware('auth');
 

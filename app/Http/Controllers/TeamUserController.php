@@ -9,9 +9,11 @@ use Illuminate\Validation\Rule;
 
 class TeamUserController extends Controller
 {
-    public function create()
+    public function create(Request $request)
     {
-        return view('team.user');
+        return view('team.user', [
+            'team_id' => $request->route('team_id')
+        ]);
     }
 
     public function store(Request $request)
@@ -27,7 +29,7 @@ class TeamUserController extends Controller
         $user->assignRole('admin');
         $user->givePermissionTo('give permission');
         
-        $user->team_id = $request->query('team_id');
+        $user->team_id = $request->route('team_id');
         $user->save();
 
         auth()->login($user);
