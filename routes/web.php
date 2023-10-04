@@ -39,28 +39,28 @@ Route::post('team/step-user/{team_id}', [TeamUserController::class, 'store'])->m
 
 Route::get('team/{user:team_id}', [TeamManagmentController::class, 'create'])->middleware('auth');
 
-Route::get('team/{user:team_id}/events', [EventController::class, 'index']);
+Route::get('team/{user:team_id}/events', [EventController::class, 'index'])->middleware('auth');
 /* Das können nur bestimmte Rollen aufrufen, naemlich Admin, Coach */
-Route::get('team/{user:team_id}/events/create', [EventController::class, 'create']);
-Route::post('team/{user:team_id}/events', [EventController::class, 'store']);
-Route::get('events/{event}/edit', [EventController::class, 'edit']);
-Route::patch('events/{event}', [EventController::class, 'update']);
-Route::delete('events/{event}', [EventController::class, 'destroy']);
+Route::get('team/{user:team_id}/events/create', [EventController::class, 'create'])->middleware('auth');
+Route::post('team/{user:team_id}/events', [EventController::class, 'store'])->middleware('auth');
+Route::get('events/{event}/edit', [EventController::class, 'edit'])->middleware('auth');
+Route::patch('events/{event}', [EventController::class, 'update'])->middleware('auth');
+Route::delete('events/{event}', [EventController::class, 'destroy'])->middleware('auth');
 
-Route::get('team/{user:team_id}/treasury', [TreasuryController::class, 'index']);
+Route::get('team/{user:team_id}/treasury', [TreasuryController::class, 'index'])->middleware('auth');
 /* Das können nur bestimmte Rollen aufrufen, naemlich Admin, Treasurer */
-Route::get('team/{user:team_id}/treasury/create', [TreasuryController::class, 'create']);
-Route::post('team/{user:team_id}/treasury', [TreasuryController::class, 'store']);
-Route::get('treasury/{treasury}/edit', [TreasuryController::class, 'edit']);
-Route::patch('treasury/{treasury}', [TreasuryController::class, 'update']);
-Route::delete('treasury/{treasury}', [TreasuryController::class, 'destroy']);
+Route::get('team/{user:team_id}/treasury/create', [TreasuryController::class, 'create'])->middleware('auth');
+Route::post('team/{user:team_id}/treasury', [TreasuryController::class, 'store'])->middleware('auth');
+Route::get('treasury/{treasury}/edit', [TreasuryController::class, 'edit'])->middleware('auth');
+Route::patch('treasury/{treasury}', [TreasuryController::class, 'update'])->middleware('auth');
+Route::delete('treasury/{treasury}', [TreasuryController::class, 'destroy'])->middleware('auth');
 
-Route::get('team/{user:team_id}/permissions', [PermissionController::class, 'index']);
-Route::patch('permissions/{user}', [PermissionController::class, 'update']);
+Route::get('team/{user:team_id}/permissions', [PermissionController::class, 'index'])->middleware('auth');
+Route::patch('permissions/{user}', [PermissionController::class, 'update'])->middleware('auth');
 
 Route::get('join', [JoinController::class, 'create'])->middleware('guest');
 Route::post('join', [JoinController::class, 'store']);
 Route::get('join/register/{team_id}', [RegisterController::class, 'create']);
 Route::post('join/register/{team_id}', [RegisterController::class, 'store']);
 
-Route::get('team/{user:team_id}/setting', [SettingController::class, 'index']);
+Route::get('team/{user:team_id}/setting', [SettingController::class, 'index'])->middleware('auth');

@@ -43,6 +43,15 @@
                                                 </div>
                                             </div>
                                         </td>
+                                        @if($user->can('give permission'))
+                                        <td class="px-6 py-4 whitespace-nowrap">
+                                            <div class="flex items-center">
+                                                <div class="text-lg font-medium text-gray-900 font-fantasy">
+                                                    Admin
+                                                </div>
+                                            </div>
+                                        </td>
+                                        @else
                                         <td class="px-6 py-4 whitespace-nowrap">
                                             <span class="px-2 inline-flex text-lg leading-5 font-semibold text-green-600 font-fantasy">
                                                 <x-form.field>
@@ -62,6 +71,7 @@
                                                 </x-form.field>
                                             </span>
                                         </td>
+                                        @endif
                                         <td class="px-6 py-4 whitespace-nowrap">
                                             <span class="px-2 inline-flex text-lg leading-5 font-semibold text-green-600 font-fantasy">
                                                 <x-form.field>
@@ -81,7 +91,7 @@
                                                 </x-form.field>
                                             </span>
                                         </td>
-                                        <td>
+                                        <td class="px-6 py-4 whitespace-nowrap">
                                             <button class="py-2 px-4 bg-blue-700 rounded-full text-white text-lg font-fantasy" action="submit">Save</button>
                                         </td>
                                     </tr>

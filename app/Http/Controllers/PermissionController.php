@@ -17,15 +17,13 @@ class PermissionController extends Controller
     public function update(User $user)
     {
         $attributes = request()->validate([
-            'role_id' =>['required'],
+            'role_id' => $user->can('give permission') ? [''] : ['required'],
             'role_id2' => ['required']
         ]);
 
-        $user->assignRole($attributes);
-        if($user->hasRoles > 3)
-        {
-            $user->removeRole('coach');
-        }
+    
+        $user->syncRoles($attributes);
+    
         $user->save();
 
         return redirect('/team/'. auth()->user()->team_id.'/permissions');
