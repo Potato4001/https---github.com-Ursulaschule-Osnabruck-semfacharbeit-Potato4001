@@ -80,7 +80,7 @@
                                         </div>
                                     </td>
                                     <td class="px-6 py-4 whitespace-nowrap">
-                                        <span class="px-2 inline-flex text-lg leading-5 font-semibold text-green-600 justify-end">
+                                        <span class="px-2 flex text-lg leading-5 font-semibold text-green-600 justify-end">
                                             {{ $treasury->betrag }} €
                                         </span>
                                     </td>
