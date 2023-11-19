@@ -25,7 +25,11 @@ use Spatie\Permission\Exceptions\RoleDoesNotExist;
 */
 
 Route::get('/', function () {
-    return view('index');
+    if(Auth::check()){
+        return redirect('team/'. auth()->user()->team_id);
+    }else{
+        return view('index');
+    }
 });
 
 Route::get('login', [SessionsController::class, 'create'])->middleware('guest');
