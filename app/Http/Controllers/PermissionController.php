@@ -21,9 +21,14 @@ class PermissionController extends Controller
             'role_id2' => ['required']
         ]);
 
-    
-        $user->syncRoles($attributes);
-    
+        $role2 = request()->role_id2;
+
+        if($user->can('give permission'))
+        {
+            $user->assignRole($role2);
+        }else{
+            $user->syncRoles($attributes);
+        }
         $user->save();
 
         return redirect('/team/'. auth()->user()->team_id.'/permissions');
